@@ -1,12 +1,12 @@
 {
-  "name": "semilla-typescript-lib",
+  "name": "semillas-typescript",
   "version": "1.0.0",
-  "author": "Federico Aloi",
+  "author": "Franco Ibañez",
   "license": "MIT",
   "scripts": {
     "test": "run-s lint jest",
     "lint": "eslint --cache .",
-    "jest": "jest",
+    "jest": "jest ./src/test/parcelas.test.ts",
     "test:watch": "jest --watch"
   },
   "keywords": [],
