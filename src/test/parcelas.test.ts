@@ -46,5 +46,4 @@ describe("Parcelas", () => {
     it("debe arrojar una excepcion si se intenta superar el maximo de plantas", () => {
         expect(() => parcela1.plantar(soja)).toThrow("No puede ser plantada")
     })
-
 })

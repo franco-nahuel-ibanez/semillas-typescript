@@ -6,7 +6,7 @@
   "scripts": {
     "test": "run-s lint jest",
     "lint": "eslint --cache .",
-    "jest": "jest ./src/test/parcelas.test.ts",
+    "jest": "jest ./src/test/planta.test.ts",
     "test:watch": "jest --watch"
   },
   "keywords": [],
