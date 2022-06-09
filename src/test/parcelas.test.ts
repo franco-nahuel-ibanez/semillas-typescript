@@ -1,11 +1,11 @@
 import { Menta, Soja } from '../main/plantas'
-import { Parcela } from '../main/parcelas'
+import { ParcelaEcologica } from '../main/parcelas'
 
 describe("Parcelas", () => {
     const soja = new Soja(1.0, 2019)
     const menta = new Menta(1.0, 2008)
 
-    const parcela1 = new Parcela(20.0, 1.0, 10.0)
+    const parcela1 = new ParcelaEcologica(20.0, 1.0, 10.0)
     parcela1.plantar(soja)
     parcela1.plantar(soja)
     parcela1.plantar(soja)
@@ -20,12 +20,12 @@ describe("Parcelas", () => {
     })
 
     it("para una parcela con un ancho de 2 y un largo de 5 la cantidad maxima es de 8", () => {
-        const parcela2 = new Parcela(2.0, 5.0, 5.0)
+        const parcela2 = new ParcelaEcologica(2.0, 5.0, 5.0)
         expect(parcela2.maxDePlantas()).toEqual(8)
     })
 
     it("una parcela vacia no debe tener complicaciones", () => {
-        const parcela2 = new Parcela(5.0, 2.0, 6.0)
+        const parcela2 = new ParcelaEcologica(5.0, 2.0, 6.0)
         expect(parcela2.tieneComplicaciones()).toBeFalsy()
     })
 
@@ -36,7 +36,7 @@ describe("Parcelas", () => {
     })
 
     it("una parcela que reciba mas sol del que alguna de sus plantas tolera tiene complicaciones", () => {
-        const parcela2 = new Parcela(5.0, 2.0, 8.0)
+        const parcela2 = new ParcelaEcologica(5.0, 2.0, 8.0)
         parcela2.plantar(menta)
         parcela2.plantar(soja)
 
@@ -46,4 +46,5 @@ describe("Parcelas", () => {
     it("debe arrojar una excepcion si se intenta superar el maximo de plantas", () => {
         expect(() => parcela1.plantar(soja)).toThrow("No puede ser plantada")
     })
+
 })

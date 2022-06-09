@@ -12,9 +12,9 @@ abstract class Planta {
     horasDeSol(): number { return 7 }
     esFuerte(): boolean { return this.horasDeSol() > 9 }
     daSemillas(): boolean { return this.esFuerte() }
+    seAsociaBien(parcela: Parcela): boolean { return parcela.asociaBienA(this) }
     abstract espacio(): number
     abstract esParcelaIdeal(parcela: Parcela): boolean
-
 }
 
 class Menta extends Planta {

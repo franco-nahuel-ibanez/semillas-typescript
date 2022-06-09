@@ -1,7 +1,6 @@
 import { Planta } from './plantas'
 
-
-class Parcela {
+abstract class Parcela {
     private ancho: number
     private largo: number
     public horasDeSol: number
@@ -34,6 +33,27 @@ class Parcela {
         }
         this.plantas.push(planta)
     }
+    abstract asociaBienA(planta: Planta): boolean
 }
 
-export { Parcela }
+class ParcelaEcologica extends Parcela {
+    constructor(ancho: number, largo: number, horasDeSol: number) {
+        super(ancho, largo, horasDeSol)
+    }
+
+    override asociaBienA(planta: Planta): boolean {
+        return !this.tieneComplicaciones() && planta.esParcelaIdeal(this)
+    }
+}
+
+class ParcelaIndustrial extends Parcela {
+    constructor(ancho: number, largo: number, horasDeSol: number) {
+        super(ancho, largo, horasDeSol)
+    }
+
+    override asociaBienA(planta: Planta): boolean {
+        return this.plantas.length <= 2 && planta.esFuerte()
+    }
+}
+
+export { Parcela, ParcelaEcologica, ParcelaIndustrial }
